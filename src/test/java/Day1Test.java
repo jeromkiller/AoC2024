@@ -40,7 +40,7 @@ public class Day1Test {
     @Test
     public void multiNumber() {
         Day1 day1 = new Day1();
-        List<Integer> testInput = List.of(2, 3, 4 ,5);
+        List<Integer> testInput = List.of(1, 2, 3, 4 ,5);
         List<Integer> res = day1.getNumbers("a1b2c3d4e5f");
         Assertions.assertEquals(testInput, res);
     }
