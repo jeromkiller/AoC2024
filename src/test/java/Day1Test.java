@@ -6,42 +6,39 @@ import org.junit.jupiter.api.Test;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Day1Test {
     @Test
     public void readInput() {
         Day1 day1 = new Day1();
-        List<String> readInput = day1.readInput("./src/main/resources/testInput.txt");
-        List<String> testInput = List.of(
-                "1abc2",
-                "pqr3stu8vwx",
-                "a1b2c3d4e5f",
-                "treb7uchet");
-        Assertions.assertEquals(testInput, readInput);
+        List<Integer>[] readInput = day1.readInput("./src/main/java/AoC/day1/testInput.txt");
+        List<Integer>[] expected = new List[]{List.of(3, 4, 2, 1, 3, 3), List.of(4, 3, 5 ,3, 9, 3)};
+        Assertions.assertArrayEquals(expected, readInput);
     }
 
     @Test
-    public void oneNumber() {
+    public void sort() {
         Day1 day1 = new Day1();
-        List<Integer> testInput = List.of(7);
-        List<Integer> res = day1.getNumbers("treb7uchet");
-        Assertions.assertEquals(testInput, res);
+        List<Integer> list = new ArrayList(List.of(4, 3, 5 ,3, 9, 3));
+        Collections.sort(list);
+
+        List<Integer> expected = List.of(3, 3, 3, 4, 5, 9);
+        Assertions.assertEquals(expected, list);
     }
 
-    @Test
-    public void twoNumber() {
+    @Test void star01() {
         Day1 day1 = new Day1();
-        List<Integer> testInput = List.of(1, 2);
-        List<Integer> res = day1.getNumbers("1abc2");
-        Assertions.assertEquals(testInput, res);
+        List<Integer>[] readInput = day1.readInput("./src/main/java/AoC/day1/testInput.txt");
+        int sum = day1.star1(readInput[0], readInput[1]);
+        Assertions.assertEquals(11, sum);
     }
 
-    @Test
-    public void multiNumber() {
+    @Test void star02() {
         Day1 day1 = new Day1();
-        List<Integer> testInput = List.of(1, 2, 3, 4 ,5);
-        List<Integer> res = day1.getNumbers("a1b2c3d4e5f");
-        Assertions.assertEquals(testInput, res);
+        List<Integer>[] readInput = day1.readInput("./src/main/java/AoC/day1/testInput.txt");
+        int sum = day1.star2(readInput[0], readInput[1]);
+        Assertions.assertEquals(31, sum);
     }
 }
