@@ -18,13 +18,14 @@ public class Day7 {
     }
 
     public enum OPERATION {
-        MULT,
+        MULTIPLY,
         ADD,
         CONCAT
     }
 
-    static List<OPERATION> star1_ops = List.of(OPERATION.MULT, OPERATION.ADD);
-    static List<OPERATION> star2_ops = List.of(OPERATION.MULT, OPERATION.ADD, OPERATION.CONCAT);
+    // order operations from quickest growing to slowest
+    static List<OPERATION> star1_ops = List.of(OPERATION.MULTIPLY, OPERATION.ADD);
+    static List<OPERATION> star2_ops = List.of(OPERATION.MULTIPLY, OPERATION.CONCAT, OPERATION.ADD);
 
     public static List<Calculation> readPagesInput(String filePath) {
         List<Calculation> calculations = new ArrayList<>();
@@ -60,18 +61,22 @@ public class Day7 {
             final long val = calc.getValues().get(i);
             //final boolean doMult = (permutation & (1 << i-1)) == 0;
             OPERATION op = getOperation(permutation, i, ops);
-            switch (op) {
-                case MULT:
-                    total *= val;
-                    break;
-                case ADD:
-                    total += val;
-                    break;
-                case CONCAT:
-                    total = Long.parseLong(total + "" + val);
-            }
+            total = doOp(op, total, val);
         }
         return total == calc.getTotal();
+    }
+
+    public static long doOp(OPERATION op, long lhs, long rhs) {
+        switch (op) {
+            case MULTIPLY:
+                return lhs * rhs;
+            case ADD:
+                return lhs + rhs;
+            case CONCAT:
+                return Long.parseLong(lhs + "" + rhs);
+        }
+        assert false;
+        return 0L;  // shouldn't happen
     }
 
     public static boolean check_possible(final Calculation calc, List<OPERATION> ops) {
@@ -84,18 +89,60 @@ public class Day7 {
         return calcs.stream().filter(calc -> check_possible(calc, star1_ops)).map(Calculation::getTotal).reduce(0L, Long::sum);
     }
 
+    public static Long star1_rec(final List<Calculation> calcs) {
+        return calcs.stream().filter(calc -> check_possible_rec(calc, calc.getValues().get(0), 1, star1_ops)).map(Calculation::getTotal).reduce(0L, Long::sum);
+    }
+
     public static Long star2(final List<Calculation> calcs) {
         return calcs.stream().filter(calc -> check_possible(calc, star2_ops)).map(Calculation::getTotal).reduce(0L, Long::sum);
     }
 
-    // took an iterative approach could be optimized using a recursive approach
-    // but hey, at least it uses constant memory
+    public static Long star2_rec(final List<Calculation> calcs) {
+        return calcs.stream().filter(calc -> check_possible_rec(calc, calc.getValues().get(0), 1, star2_ops)).map(Calculation::getTotal).reduce(0L, Long::sum);
+    }
+
+    public static boolean check_possible_rec(final Calculation calc, long val, int index, List<OPERATION> ops) {
+        if( val > calc.getTotal()) {
+            // early return
+            // we are already larger than the required value, no need to head further down this leg of hte tree
+            return false;
+        }
+        final long rhs = calc.getValues().get(index);
+        final boolean lastValue = index == calc.getValues().size() -1;
+        for(OPERATION op : ops) {
+            long tryVal = doOp(op, val, rhs);
+            if(tryVal == calc.getTotal() && lastValue) {
+                return true;
+            }
+            if(!lastValue) {
+                if(check_possible_rec(calc, tryVal, index + 1, ops)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         final List<Calculation> input = readPagesInput("./src/main/java/AoC/day7/input.txt");
+
+        // star 1 would also go a lot faster recursively, but for 2^n options, you don't really feel how slow it is
         Long star1 = star1(input);
         System.out.println("star1: " + star1);
 
+        // however, when your options grow to 3^n, you might notice a small difference :P
+        long s2_start_rec = System.currentTimeMillis();
+        Long star2_rec = star2_rec(input);
+        long s2_finish_rec = System.currentTimeMillis();
+        long s2_timeElapsed_rec = s2_finish_rec - s2_start_rec;
+        System.out.println("\nstar2 recursively: " + star2_rec);
+        System.out.println("Time taken: " + s2_timeElapsed_rec + "ms");
+
+        long s2_start_it = System.currentTimeMillis();
         Long star2 = star2(input);
-        System.out.println("star2: " + star2);
+        long s2_finish_it = System.currentTimeMillis();
+        long s2_timeElapsed_it = s2_finish_it - s2_start_it;
+        System.out.println("\nstar2 iteratively: " + star2);
+        System.out.println("Time taken: " + s2_timeElapsed_it + "ms");
     }
 }
