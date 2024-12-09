@@ -1,4 +1,4 @@
-import AoC.day9.Day9;
+import AoC.day09.Day9;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

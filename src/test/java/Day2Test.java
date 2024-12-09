@@ -1,8 +1,7 @@
-import AoC.day2.Day2;
+import AoC.day02.Day2;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
