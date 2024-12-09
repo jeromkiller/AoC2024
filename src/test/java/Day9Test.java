@@ -26,11 +26,11 @@ public class Day9Test {
     }
 
     String getInputString() {
-        return getInputLine("./src/main/java/AoC/day9/input.txt");
+        return getInputLine("./src/main/java/AoC/day09/input.txt");
     }
 
     String getTestInputString() {
-        return getInputLine("./src/main/java/AoC/day9/testInput.txt");
+        return getInputLine("./src/main/java/AoC/day09/testInput.txt");
     }
 
     @Test
@@ -49,7 +49,7 @@ public class Day9Test {
 
     @Test
     void testDiskFullMap() {
-        ArrayList<Short> fullDisk = Day9.toFullMap(Day9.getInputLine("./src/main/java/AoC/day9/testInput.txt"));
+        ArrayList<Short> fullDisk = Day9.toFullMap(Day9.getInputLine("./src/main/java/AoC/day09/testInput.txt"));
         String expected = "00...111...2...333.44.5555.6666.777.888899";
         String str = Day9.toString(fullDisk);
         Assertions.assertEquals(expected, str);
@@ -57,7 +57,7 @@ public class Day9Test {
 
     @Test
     void testBackFill() {
-        ArrayList<Short> fullDisk = Day9.toFullMap(Day9.getInputLine("./src/main/java/AoC/day9/testInput.txt"));
+        ArrayList<Short> fullDisk = Day9.toFullMap(Day9.getInputLine("./src/main/java/AoC/day09/testInput.txt"));
         Day9.backFill(fullDisk);
         String expected = "0099811188827773336446555566..............";
         String str = Day9.toString(fullDisk);
@@ -66,7 +66,7 @@ public class Day9Test {
 
     @Test
     void testCheckSum() {
-        ArrayList<Short> fullDisk = Day9.toFullMap(Day9.getInputLine("./src/main/java/AoC/day9/testInput.txt"));
+        ArrayList<Short> fullDisk = Day9.toFullMap(Day9.getInputLine("./src/main/java/AoC/day09/testInput.txt"));
         Day9.backFill(fullDisk);
         long checksum = Day9.calcChecksum(fullDisk);
         Assertions.assertEquals(1928, checksum);
@@ -74,7 +74,7 @@ public class Day9Test {
 
     @Test
     void testSpanList() {
-        ArrayList<Day9.FileSpan> fullDisk = Day9.toSpans(Day9.getInputLine("./src/main/java/AoC/day9/testInput.txt"));
+        ArrayList<Day9.FileSpan> fullDisk = Day9.toSpans(Day9.getInputLine("./src/main/java/AoC/day09/testInput.txt"));
         String expected = "00...111...2...333.44.5555.6666.777.888899";
         String str = Day9.SpantoString(fullDisk);
         Assertions.assertEquals(expected, str);
@@ -82,7 +82,7 @@ public class Day9Test {
 
     @Test
     void testSpanBackFill() {
-        ArrayList<Day9.FileSpan> fullDisk = Day9.toSpans(Day9.getInputLine("./src/main/java/AoC/day9/testInput.txt"));
+        ArrayList<Day9.FileSpan> fullDisk = Day9.toSpans(Day9.getInputLine("./src/main/java/AoC/day09/testInput.txt"));
         Day9.backfillSpans(fullDisk);
         ArrayList<Short> fullMap = Day9.SpanToFullMap(fullDisk);
         String expected = "00992111777.44.333....5555.6666.....8888..";
@@ -92,7 +92,7 @@ public class Day9Test {
 
     @Test
     void star2Test() {
-        ArrayList<Day9.FileSpan> fullDisk = Day9.toSpans(Day9.getInputLine("./src/main/java/AoC/day9/testInput.txt"));
+        ArrayList<Day9.FileSpan> fullDisk = Day9.toSpans(Day9.getInputLine("./src/main/java/AoC/day09/testInput.txt"));
         Day9.backfillSpans(fullDisk);
         ArrayList<Short> fullMap = Day9.SpanToFullMap(fullDisk);
         long checksum = Day9.calcChecksum(fullMap);

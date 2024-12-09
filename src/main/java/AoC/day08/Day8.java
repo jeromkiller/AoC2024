@@ -160,7 +160,7 @@ public class Day8 {
     }
 
     public static void main(String[] args) {
-        Day8.map data = Day8.readInput("./src/main/java/AoC/day8/input.txt");
+        Day8.map data = Day8.readInput("./src/main/java/AoC/day08/input.txt");
         int star1 = Day8.star1(data);
         System.out.println("Star1: " + star1);
 

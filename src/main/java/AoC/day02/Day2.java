@@ -88,7 +88,7 @@ public class Day2 {
     }
 
     public static void main(String[] args) {
-        List<List<Integer>> reports = readInput("./src/main/java/AoC/day2/input.txt");
+        List<List<Integer>> reports = readInput("./src/main/java/AoC/day02/input.txt");
         final int star1 = star01(reports);
         System.out.println("Star1: " + star1);
         final int star2 = star02(reports);

@@ -34,21 +34,21 @@ public class Day8Test {
 
     @Test
     void star1Test() {
-        Day8.map data = Day8.readInput("./src/main/java/AoC/day8/testInput.txt");
+        Day8.map data = Day8.readInput("./src/main/java/AoC/day08/testInput.txt");
         int numAntiNodes = Day8.star1(data);
         Assertions.assertEquals(14, numAntiNodes);
     }
 
     @Test
     void RessonanceTest() {
-        Day8.map data = Day8.readInput("./src/main/java/AoC/day8/resonanceInput.txt");
+        Day8.map data = Day8.readInput("./src/main/java/AoC/day08/resonanceInput.txt");
         int numAntiNodes = Day8.star2(data);
         Assertions.assertEquals(9, numAntiNodes);
     }
 
     @Test
     void star2Test() {
-        Day8.map data = Day8.readInput("./src/main/java/AoC/day8/testInput.txt");
+        Day8.map data = Day8.readInput("./src/main/java/AoC/day08/testInput.txt");
         int numAntiNodes = Day8.star2(data);
         Assertions.assertEquals(34, numAntiNodes);
     }

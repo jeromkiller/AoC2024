@@ -37,7 +37,7 @@ public class Day6Test {
 
     @Test
     void inputTest() {
-        Day6.map patrol_map = Day6.readInput("./src/main/java/AoC/day6/testInput.txt");
+        Day6.map patrol_map = Day6.readInput("./src/main/java/AoC/day06/testInput.txt");
         HashSet<Day6.Vec> expected_obs = new HashSet<>();
         expected_obs.add(new Day6.Vec(4, 0));
         expected_obs.add(new Day6.Vec(9, 1));
@@ -60,14 +60,14 @@ public class Day6Test {
 
     @Test
     void star1Test() {
-        Day6.map patrol_map = Day6.readInput("./src/main/java/AoC/day6/testInput.txt");
+        Day6.map patrol_map = Day6.readInput("./src/main/java/AoC/day06/testInput.txt");
         int result = Day6.star1(patrol_map);
         Assertions.assertEquals(41, result);
     }
 
     @Test
     void star2Test() {
-        Day6.map patrol_map = Day6.readInput("./src/main/java/AoC/day6/testInput.txt");
+        Day6.map patrol_map = Day6.readInput("./src/main/java/AoC/day06/testInput.txt");
         int result = Day6.star2(new Day6.map(patrol_map));
         Assertions.assertEquals(6, result);
     }

@@ -89,7 +89,7 @@ public class Day3 {
     }
 
     public static void main(String[] args) {
-        List<String> lines = readInput("./src/main/java/AoC/day3/input.txt");
+        List<String> lines = readInput("./src/main/java/AoC/day03/input.txt");
         List<String> muls = new ArrayList<>();
         for(final String line: lines) {
             final List<String> mul_list = getMuls(line);

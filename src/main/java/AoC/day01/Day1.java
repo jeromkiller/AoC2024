@@ -65,7 +65,7 @@ public class Day1 {
     public static void main(String args[]){
         System.out.println("Test");
         Day1 day1 = new Day1();
-        List<Integer>[] input = day1.readInput("./src/main/java/AoC/day1/input.txt");
+        List<Integer>[] input = day1.readInput("./src/main/java/AoC/day01/input.txt");
         int sum1 = day1.star1(input[0], input[1]);
         System.out.println("Star 1: " + sum1);
         int sum2 = day1.star2(input[0], input[1]);

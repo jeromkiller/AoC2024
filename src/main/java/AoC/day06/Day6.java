@@ -216,7 +216,7 @@ public class Day6 {
     }
 
     public static void main(String[] args) {
-        Day6.map patrol_map = Day6.readInput("./src/main/java/AoC/day6/input.txt");
+        Day6.map patrol_map = Day6.readInput("./src/main/java/AoC/day06/input.txt");
         int star1 = Day6.star1(new map(patrol_map));
         System.out.println("star1: " + star1);
 

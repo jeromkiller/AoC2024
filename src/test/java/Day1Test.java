@@ -10,7 +10,7 @@ public class Day1Test {
     @Test
     public void readInput() {
         Day1 day1 = new Day1();
-        List<Integer>[] readInput = day1.readInput("./src/main/java/AoC/day1/testInput.txt");
+        List<Integer>[] readInput = day1.readInput("./src/main/java/AoC/day01/testInput.txt");
         List<Integer>[] expected = new List[]{List.of(3, 4, 2, 1, 3, 3), List.of(4, 3, 5 ,3, 9, 3)};
         Assertions.assertArrayEquals(expected, readInput);
     }
@@ -27,14 +27,14 @@ public class Day1Test {
 
     @Test void star01() {
         Day1 day1 = new Day1();
-        List<Integer>[] readInput = day1.readInput("./src/main/java/AoC/day1/testInput.txt");
+        List<Integer>[] readInput = day1.readInput("./src/main/java/AoC/day01/testInput.txt");
         int sum = day1.star1(readInput[0], readInput[1]);
         Assertions.assertEquals(11, sum);
     }
 
     @Test void star02() {
         Day1 day1 = new Day1();
-        List<Integer>[] readInput = day1.readInput("./src/main/java/AoC/day1/testInput.txt");
+        List<Integer>[] readInput = day1.readInput("./src/main/java/AoC/day01/testInput.txt");
         int sum = day1.star2(readInput[0], readInput[1]);
         Assertions.assertEquals(31, sum);
     }

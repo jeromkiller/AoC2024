@@ -52,8 +52,8 @@ public class Day5Test {
 
     @Test
     void testTestInputOrder() {
-        List<List<Integer>> pages_list = Day5.readPagesInput("./src/main/java/AoC/Day5/testPages.txt");
-        HashMap<Integer, HashSet<Integer>> ordering = Day5.readOrderInput("./src/main/java/AoC/Day5/testOrder.txt");
+        List<List<Integer>> pages_list = Day5.readPagesInput("./src/main/java/AoC/Day05/testPages.txt");
+        HashMap<Integer, HashSet<Integer>> ordering = Day5.readOrderInput("./src/main/java/AoC/Day05/testOrder.txt");
 
         List<Boolean> results = pages_list.stream().map(pages -> Day5.inOrder(pages, ordering)).collect(Collectors.toList());
         List<Boolean> expected = List.of(true, true, true, false, false, false);
@@ -71,7 +71,7 @@ public class Day5Test {
     @Test
     void testSorting() {
         List<Integer> values = new ArrayList<>(List.of(97,13,75,29,47));
-        HashMap<Integer, HashSet<Integer>> ordering = Day5.readOrderInput("./src/main/java/AoC/Day5/testOrder.txt");
+        HashMap<Integer, HashSet<Integer>> ordering = Day5.readOrderInput("./src/main/java/AoC/Day05/testOrder.txt");
 
         List<Integer> expected = List.of(97,75,47,29,13);
         List<Integer> sorted = Day5.sort(values, ordering);
@@ -83,8 +83,8 @@ public class Day5Test {
 
     @Test
     void testStar1() {
-        List<List<Integer>> pages_list = Day5.readPagesInput("./src/main/java/AoC/Day5/testPages.txt");
-        HashMap<Integer, HashSet<Integer>> ordering = Day5.readOrderInput("./src/main/java/AoC/Day5/testOrder.txt");
+        List<List<Integer>> pages_list = Day5.readPagesInput("./src/main/java/AoC/Day05/testPages.txt");
+        HashMap<Integer, HashSet<Integer>> ordering = Day5.readOrderInput("./src/main/java/AoC/Day05/testOrder.txt");
 
         int result = Day5.star1(pages_list, ordering);
 
@@ -93,8 +93,8 @@ public class Day5Test {
 
     @Test
     void testStar2() {
-        List<List<Integer>> pages_list = Day5.readPagesInput("./src/main/java/AoC/Day5/testPages.txt");
-        HashMap<Integer, HashSet<Integer>> ordering = Day5.readOrderInput("./src/main/java/AoC/Day5/testOrder.txt");
+        List<List<Integer>> pages_list = Day5.readPagesInput("./src/main/java/AoC/Day05/testPages.txt");
+        HashMap<Integer, HashSet<Integer>> ordering = Day5.readOrderInput("./src/main/java/AoC/Day05/testOrder.txt");
 
         int result = Day5.star2(pages_list, ordering);
         Assertions.assertEquals(123, result);

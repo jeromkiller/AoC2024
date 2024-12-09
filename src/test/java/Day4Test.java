@@ -49,7 +49,7 @@ public class Day4Test {
 
     @Test
     void directionTest() {
-        List<String> directions = Day4.readInput("./src/main/java/AoC/day4/directionsInput.txt");
+        List<String> directions = Day4.readInput("./src/main/java/AoC/day04/directionsInput.txt");
         Day4.CrossWord cw = new Day4.CrossWord(directions);
         final int border = 4;
         cw.addBorder(border);
@@ -80,8 +80,8 @@ public class Day4Test {
 
     @Test
     void testToString() {
-        List<String> input = Day4.readInput("./src/main/java/AoC/day4/testInput.txt");
-        List<String> control = Day4.readInput("./src/main/java/AoC/day4/testInputCheck.txt");
+        List<String> input = Day4.readInput("./src/main/java/AoC/day04/testInput.txt");
+        List<String> control = Day4.readInput("./src/main/java/AoC/day04/testInputCheck.txt");
         Day4.CrossWord testCW = new Day4.CrossWord(input);
         Day4.CrossWord controlCW = new Day4.CrossWord(control);
 
@@ -95,7 +95,7 @@ public class Day4Test {
 
     @Test
     void testStar1() {
-        List<String> input = Day4.readInput("./src/main/java/AoC/day4/testInput.txt");
+        List<String> input = Day4.readInput("./src/main/java/AoC/day04/testInput.txt");
         Day4.CrossWord cw = new Day4.CrossWord(input);
         Day4.star01(cw, "XMAS");
         Assertions.assertEquals(18, cw.numFound);
@@ -103,7 +103,7 @@ public class Day4Test {
 
     @Test
     void testStar2() {
-        List<String> input = Day4.readInput("./src/main/java/AoC/day4/testInput.txt");
+        List<String> input = Day4.readInput("./src/main/java/AoC/day04/testInput.txt");
         Day4.CrossWord cw = new Day4.CrossWord(input);
         Day4.star02(cw);
         Assertions.assertEquals(9, cw.numFound);

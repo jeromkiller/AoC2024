@@ -124,7 +124,7 @@ public class Day7 {
     }
 
     public static void main(String[] args) {
-        final List<Calculation> input = readPagesInput("./src/main/java/AoC/day7/input.txt");
+        final List<Calculation> input = readPagesInput("./src/main/java/AoC/day07/input.txt");
 
         // star 1 would also go a lot faster recursively, but for 2^n options, you don't really feel how slow it is
         Long star1 = star1(input);

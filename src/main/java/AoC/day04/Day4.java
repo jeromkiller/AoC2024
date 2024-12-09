@@ -234,7 +234,7 @@ public class Day4 {
     }
 
     public static void main(String[] args) {
-        List<String> input = readInput("./src/main/java/AoC/day4/input.txt");
+        List<String> input = readInput("./src/main/java/AoC/day04/input.txt");
         CrossWord star1Crossword = new CrossWord(input);
         star01(star1Crossword, "XMAS");
         System.out.println("Star1: " + star1Crossword.numFound);

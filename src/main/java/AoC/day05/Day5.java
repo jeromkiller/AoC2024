@@ -103,8 +103,8 @@ public class Day5 {
     }
 
     public static void main(String[] args) {
-        List<List<Integer>> pages_list = Day5.readPagesInput("./src/main/java/AoC/Day5/inputPages.txt");
-        HashMap<Integer, HashSet<Integer>> ordering = Day5.readOrderInput("./src/main/java/AoC/Day5/inputOrder.txt");
+        List<List<Integer>> pages_list = Day5.readPagesInput("./src/main/java/AoC/Day05/inputPages.txt");
+        HashMap<Integer, HashSet<Integer>> ordering = Day5.readOrderInput("./src/main/java/AoC/Day05/inputOrder.txt");
 
         int star1 = Day5.star1(pages_list, ordering);
         System.out.println("Star1: " + star1);

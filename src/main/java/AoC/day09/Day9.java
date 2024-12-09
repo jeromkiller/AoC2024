@@ -199,11 +199,11 @@ public class Day9 {
 
 
     public static void main(String[] args) {
-        ArrayList<Character> diskMap = getInputLine("./src/main/java/AoC/day9/input.txt");
+        ArrayList<Character> diskMap = getInputLine("./src/main/java/AoC/day09/input.txt");
         long star1 = star1(diskMap);
         System.out.println(star1);
 
-        ArrayList<Character> diskMap2 = getInputLine("./src/main/java/AoC/day9/input.txt");
+        ArrayList<Character> diskMap2 = getInputLine("./src/main/java/AoC/day09/input.txt");
         long star2 = star2(diskMap2);
         System.out.println(star2);
     }

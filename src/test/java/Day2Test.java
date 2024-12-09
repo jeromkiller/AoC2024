@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class Day2Test {
     @Test
     void readInput() {
-        List<List<Integer>> readInput = Day2.readInput("./src/main/java/AoC/day2/testInput.txt");
+        List<List<Integer>> readInput = Day2.readInput("./src/main/java/AoC/day02/testInput.txt");
         List<List<Integer>> expected = List.of(
                 List.of(7, 6, 4, 2, 1),
                 List.of(1, 2, 7, 8, 9),
@@ -22,7 +22,7 @@ public class Day2Test {
 
     @Test
     void validity_1() {
-        List<List<Integer>> readInput = Day2.readInput("./src/main/java/AoC/day2/testInput.txt");
+        List<List<Integer>> readInput = Day2.readInput("./src/main/java/AoC/day02/testInput.txt");
         List<Boolean> results = readInput.stream().map(Day2::checkSafety).collect(Collectors.toList());
         List<Boolean> expected = List.of(
                 true,
@@ -37,7 +37,7 @@ public class Day2Test {
 
     @Test
     void validity_2() {
-        List<List<Integer>> readInput = Day2.readInput("./src/main/java/AoC/day2/testInput.txt");
+        List<List<Integer>> readInput = Day2.readInput("./src/main/java/AoC/day02/testInput.txt");
         List<Boolean> results = readInput.stream().map(Day2::checkSafetyDampened).collect(Collectors.toList());
         List<Boolean> expected = List.of(
                 true,
@@ -52,14 +52,14 @@ public class Day2Test {
 
     @Test
     void star01() {
-        List<List<Integer>> readInput = Day2.readInput("./src/main/java/AoC/day2/testInput.txt");
+        List<List<Integer>> readInput = Day2.readInput("./src/main/java/AoC/day02/testInput.txt");
         int sum = Day2.star01(readInput);
         Assertions.assertEquals(2, sum);
     }
 
     @Test
     void star02() {
-        List<List<Integer>> readInput = Day2.readInput("./src/main/java/AoC/day2/testInput.txt");
+        List<List<Integer>> readInput = Day2.readInput("./src/main/java/AoC/day02/testInput.txt");
         int sum = Day2.star02(readInput);
         Assertions.assertEquals(4, sum);
     }
