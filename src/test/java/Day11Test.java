@@ -45,7 +45,7 @@ public class Day11Test {
     @Test
     void star1Test() {
         HashMap<Long, Long> input = Day11.readInput("./src/main/java/AoC/day11/testInput.txt");
-        int star1 = Day11.star1(input);
+        long star1 = Day11.star1(input);
         Assertions.assertEquals(55312, star1);
     }
 
