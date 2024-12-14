@@ -1,6 +1,5 @@
 package AoC.day13;
 
-import AoC.day12.Day12;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Value;
